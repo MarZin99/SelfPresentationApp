@@ -1,20 +1,18 @@
 import { IconInterface } from "@/app/interfaces/icon-interface";
 
-const PageIcon = ({color, width, height} : IconInterface) => {
+const PageIcon = ({ width = 48, height = 48} : IconInterface) => {
     return (
-        <svg  height={height} width={width}
-            viewBox="0 0 700 700">
-            <path d="M0 0L700 0L700 700L0 700 L0 0"/>
-
-            <path name="M" d="M60 500 l60 -250 l40 0 l-60 250 l-40 0" stroke="white" strokeWidth="1px" fill={color} />
-            <g transform="translate(80 0)"><path name="M" d="M60 500 l60 -250 l40 0 l-60 250 l-40 0" stroke="white" strokeWidth="1px" fill={color} /></g>
-            <g transform="translate(160 0)"><path name="M" d="M60 500 l60 -250 l40 0 l-60 250 l-40 0" stroke="white" strokeWidth="1px" fill={color} /></g>
-
-
-
-
-            {/* <path name="M" d="M60 500 L120 250 M150 500 L210 250 M240 500 L300 250" stroke="white" strokeWidth="50px" /> */}
-            {/* <path name="Z" d="M140 130 L400 130" stroke="white" strokeWidth="50px" /> */}
+        <svg height={height} width={width}
+            viewBox="0 0 470 470">
+        <rect width="470" height="430" fill="darkblue" />
+        <g fill="#3A3A3A" stroke="grey" strokeWidth="0px" transform="translate(30, 30)">
+            <path d="M60 350 l0 -300 l100 0 l0 300"  />
+            <path d="M220 300 l0 -190 l60 -60 l100 0 l0 300 l-100 0 l0 -110 "/>
+            </g> 
+        <g  fill="white" stroke="white" strokeWidth="0px"  >
+            <path d="M60 350 l0 -300 l100 0 l0 300"/>
+            <path d="M220 300 l0 -190 l60 -60 l100 0 l0 300 l-100 0 l0 -110 "/>
+        </g> 
         </svg>
     )
 };

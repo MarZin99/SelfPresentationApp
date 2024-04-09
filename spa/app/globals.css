@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   border-radius: 0px;
   background-color: orange;
@@ -12,7 +11,21 @@
   position: absolute;
   height: 100%;
   width: 100%;
+  display: flex;
   color: white;
-  background: rgb(2,0,36);
-  background: linear-gradient(149deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(6,84,171,1) 80%, rgba(0,131,255,1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    149deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(6, 84, 171, 1) 80%,
+    rgba(0, 131, 255, 1) 100%
+  );
+}
+
+.card {
+  height: 600px;
+  width: 400px;
+  border-radius: 30px;
+  background-color: white;
 }

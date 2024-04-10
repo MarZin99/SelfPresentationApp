@@ -11,4 +11,5 @@ export interface UserProps {
   armRange: number;
   speed: number;
   teamColor: string;
+  jumpHeight: number;
 }

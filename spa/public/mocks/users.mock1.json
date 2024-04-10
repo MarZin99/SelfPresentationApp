@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Johana",
     "surname": "Doe",
-    "nickname": "Johdee",
+    "nickname": "JayDee",
     "description": "Basketball has been my passion since childhood, providing me with endless excitement and a platform for self-expression. I've honed my skills on the court, earning recognition for my dedication and teamwork in local tournaments. Beyond the game, I find inspiration in the rhythm of dribbles and the swish of the net, pushing myself to new heights both on and off the court.",
     "image": {
       "mime": "image/png",
@@ -14,6 +14,7 @@
     "age": 22,
     "armRange": 2,
     "speed": 3,
-    "teamColor": "#5ADBFF"
+    "teamColor": "#5ADBFF",
+    "jumpHeight": 4
   }
 ]

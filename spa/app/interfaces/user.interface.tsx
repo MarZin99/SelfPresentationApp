@@ -4,4 +4,10 @@ export interface UserProps {
   surname: string;
   nickname?: string;
   description?: string;
+  image: { mime: string; data: string };
+  height: number;
+  weight: number;
+  age: number;
+  armRange: number;
+  speed: number;
 }

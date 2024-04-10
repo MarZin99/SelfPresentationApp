@@ -10,4 +10,5 @@ export interface UserProps {
   age: number;
   armRange: number;
   speed: number;
+  teamColor: string;
 }

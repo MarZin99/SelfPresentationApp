@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageIcon from "@/public/icons/logo";
 import { adjustBrightness } from "@/app/services/colorPaletteProvider";
 import { displayRating } from "@/app/services/ratingProvider";
+import { motion } from "framer-motion";
 
-export default function Card({ user }: CardProps) {
+export default function Card({ user, zIndex }: CardProps) {
   let light = adjustBrightness(user?.teamColor, 1.1);
   var lighter = adjustBrightness(user?.teamColor, 1.2);
   var dark = adjustBrightness(user?.teamColor, 0.9);
@@ -13,7 +14,12 @@ export default function Card({ user }: CardProps) {
 
   return (
     user && (
-      <div className="card shadow-xl absolute">
+      <motion.div
+        drag
+        dragConstraints={{ left: 0, right: 100, top: 0, bottom: 100 }}
+        className="card shadow-xl absolute"
+        style={{ zIndex: 10 * zIndex }}
+      >
         <div className="flex flex-col h-full">
           <div
             className="h-12 flex grid-nogutter m-1"
@@ -32,7 +38,7 @@ export default function Card({ user }: CardProps) {
                 textShadow: "2px 2px 1px " + darker,
               }}
             >
-              SPA Card
+              SPA Card {zIndex}
             </div>
             <div className="h-12 w-12 pr-2 flex justify-center items-center hover:cursor-pointer">
               <FontAwesomeIcon
@@ -218,7 +224,7 @@ export default function Card({ user }: CardProps) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     )
   );
 }

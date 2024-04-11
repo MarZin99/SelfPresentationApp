@@ -6,6 +6,8 @@ import { adjustBrightness } from "@/app/services/color-palette.provider";
 import { displayRating } from "@/app/services/rating.provider";
 import { motion, useAnimationControls } from "framer-motion";
 import useDisplaySize from "@/app/services/window-size.provider";
+import { getRandomPosition } from "@/app/services/random-position.provider";
+import { useEffect, useMemo } from "react";
 
 export default function Card({ user, zIndex, animationControls }: CardProps) {
   let light = adjustBrightness(user?.teamColor, 1.1);
@@ -19,10 +21,24 @@ export default function Card({ user, zIndex, animationControls }: CardProps) {
 
   var cardScale = 0.5;
 
+  const x1 = 120;
+  const y1 = 120;
+
+  const { x, y } = getRandomPosition(height, width);
+
+  useEffect(() => {
+    animationControls.start(() => ({
+      x: 0,
+      y: 0,
+      transition: { duration: 0.6, ease: "backOut" },
+    }));
+  }, [x, y]);
+
   return (
     user && (
       <motion.div
         drag
+        initial={{ x: x, y: y }}
         animate={animationControls}
         transition={{ ease: "easeOut", duration: 2 }}
         dragConstraints={{
@@ -142,6 +158,7 @@ export default function Card({ user, zIndex, animationControls }: CardProps) {
 
                 <img
                   src={user?.image.data}
+                  draggable="false"
                   style={{
                     borderRadius: "50%",
                     boxShadow: "4px 4px 5px" + darker,
@@ -231,7 +248,7 @@ export default function Card({ user, zIndex, animationControls }: CardProps) {
                 color: "black",
               }}
             >
-              Copyright 2024
+              (no)Copyright 2024
             </div>
             <div className="w-2/12 flex justify-end">
               <PageIcon opacity="0.5" backgroundColor="none" />

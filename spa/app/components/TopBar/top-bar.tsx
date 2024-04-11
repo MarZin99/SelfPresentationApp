@@ -9,7 +9,7 @@ export default function TopBar({ onReset }: TopBarProps) {
       style={{ zIndex: "100", backgroundColor: "black", height: "2rem" }}
     >
       <div
-        className="bg-green-300 flex h-8 w-8 justify-center items-center hover:cursor-pointer"
+        className=" flex h-8 w-8 justify-center items-center hover:cursor-pointer"
         style={{ color: "white" }}
       >
         <FontAwesomeIcon

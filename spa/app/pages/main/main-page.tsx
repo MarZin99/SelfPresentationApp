@@ -27,7 +27,7 @@ export default function MainPage() {
     animationControls.start(() => ({
       x: 0,
       y: 0,
-      transition: { duration: 0.4, ease: "backOut" },
+      transition: { duration: 0.9, ease: "backOut" },
     }));
   };
 

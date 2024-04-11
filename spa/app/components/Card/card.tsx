@@ -5,6 +5,7 @@ import PageIcon from "@/public/icons/logo";
 import { adjustBrightness } from "@/app/services/colorPaletteProvider";
 import { displayRating } from "@/app/services/ratingProvider";
 import { motion } from "framer-motion";
+import useDisplaySize from "@/app/services/windowSizeProvider";
 
 export default function Card({ user, zIndex }: CardProps) {
   let light = adjustBrightness(user?.teamColor, 1.1);
@@ -12,13 +13,22 @@ export default function Card({ user, zIndex }: CardProps) {
   var dark = adjustBrightness(user?.teamColor, 0.9);
   var darker = adjustBrightness(user?.teamColor, 0.8);
 
+  const { height, width } = useDisplaySize();
+  const cardHeight = 600;
+  const cardWidth = 400;
+
   return (
     user && (
       <motion.div
         drag
-        dragConstraints={{ left: 0, right: 100, top: 0, bottom: 100 }}
+        dragConstraints={{
+          left: -width / 2 + cardWidth / 2 + 20,
+          right: width / 2 - cardWidth / 2 - 10,
+          top: -height / 2 + cardHeight / 2 + 10,
+          bottom: height / 2 - cardHeight / 2 - 10,
+        }}
         className="card shadow-xl absolute"
-        style={{ zIndex: 10 * zIndex }}
+        style={{ zIndex: 10 * zIndex, scale: "0.5" }}
       >
         <div className="flex flex-col h-full">
           <div
@@ -38,7 +48,7 @@ export default function Card({ user, zIndex }: CardProps) {
                 textShadow: "2px 2px 1px " + darker,
               }}
             >
-              SPA Card {zIndex}
+              SPA Card
             </div>
             <div className="h-12 w-12 pr-2 flex justify-center items-center hover:cursor-pointer">
               <FontAwesomeIcon

@@ -1,13 +1,13 @@
 import { faPenToSquare, faStar } from "@fortawesome/free-solid-svg-icons";
-import { CardProps } from "./card-props";
+import { CardProps } from "./card.props";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageIcon from "@/public/icons/logo";
-import { adjustBrightness } from "@/app/services/colorPaletteProvider";
-import { displayRating } from "@/app/services/ratingProvider";
-import { motion } from "framer-motion";
-import useDisplaySize from "@/app/services/windowSizeProvider";
+import { adjustBrightness } from "@/app/services/color-palette.provider";
+import { displayRating } from "@/app/services/rating.provider";
+import { motion, useAnimationControls } from "framer-motion";
+import useDisplaySize from "@/app/services/window-size.provider";
 
-export default function Card({ user, zIndex }: CardProps) {
+export default function Card({ user, zIndex, animationControls }: CardProps) {
   let light = adjustBrightness(user?.teamColor, 1.1);
   var lighter = adjustBrightness(user?.teamColor, 1.2);
   var dark = adjustBrightness(user?.teamColor, 0.9);
@@ -23,6 +23,8 @@ export default function Card({ user, zIndex }: CardProps) {
     user && (
       <motion.div
         drag
+        animate={animationControls}
+        transition={{ ease: "easeOut", duration: 2 }}
         dragConstraints={{
           left: -width / 2 + cardWidth / (2 / cardScale) + 20,
           right: width / 2 - cardWidth / (2 / cardScale) - 10,

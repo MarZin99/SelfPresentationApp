@@ -17,18 +17,20 @@ export default function Card({ user, zIndex }: CardProps) {
   const cardHeight = 600;
   const cardWidth = 400;
 
+  var cardScale = 0.5;
+
   return (
     user && (
       <motion.div
         drag
         dragConstraints={{
-          left: -width / 2 + cardWidth / 2 + 20,
-          right: width / 2 - cardWidth / 2 - 10,
-          top: -height / 2 + cardHeight / 2 + 10,
-          bottom: height / 2 - cardHeight / 2 - 10,
+          left: -width / 2 + cardWidth / (2 / cardScale) + 20,
+          right: width / 2 - cardWidth / (2 / cardScale) - 10,
+          top: -height / 2 + cardHeight / (2 / cardScale) + 10,
+          bottom: height / 2 - cardHeight / (2 / cardScale) - 10,
         }}
         className="card shadow-xl absolute"
-        style={{ zIndex: 10 * zIndex, scale: "0.5" }}
+        style={{ zIndex: 10 * zIndex, scale: cardScale }}
       >
         <div className="flex flex-col h-full">
           <div

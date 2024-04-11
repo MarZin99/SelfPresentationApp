@@ -13,13 +13,11 @@
   width: 100%;
   display: flex;
   color: white;
-  background: rgb(2, 0, 36);
+  background: rgb(217, 197, 129);
   background: linear-gradient(
-    149deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 50%,
-    rgba(6, 84, 171, 1) 80%,
-    rgba(0, 131, 255, 1) 100%
+    322deg,
+    rgba(217, 197, 129, 1) 0%,
+    rgba(255, 255, 255, 1) 49%
   );
 }
 
